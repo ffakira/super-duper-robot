@@ -1,0 +1,14 @@
+{
+  "name": "helloworld",
+  "description": "Just trying it out Python again lol... Didn't use for +3 years",
+  "author": "Akira",
+  "license": "Unlicesed",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "python src/main.py",
+    "test": "npm run test-coin && npm run test-wallet && npm run test-distribution",
+    "test-coin": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_coin.py -v",
+    "test-wallet": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_wallet.py -v",
+    "test-distribution": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_distribution.py -v"
+  }
+}
