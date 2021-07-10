@@ -1,5 +1,5 @@
 * Assumption that `pip` is installed in your system
-* Assumption that a minimum of Python `^3.4.0` is installed
+* Assumption that a minimum of Python `^3.5.0` is installed
 * Assumption how to create a `venv` environment.
 * Optional have `node` and `npm` installed to run npm commands
 
@@ -8,22 +8,14 @@
 `src` folder contains all files to create the API endpoints, and also the business logic. This was originally translated from `*.ts` files.
 
 ```bash
-# required pip
+# required pip and npm
+$ npm run install
+
+# If no npm
 $ pip install -r requirements.txt
 ```
 
-```bash
-# npm available
-$ npm run start
-
-# If not
-$ python src/main.py
-```
-
-&nbsp;
-
 `tests` contains all the test cases.
-
 ```bash
 # npm available
 $ npm run test
@@ -39,6 +31,6 @@ $ npm run test-{file_name}
 $ npm run test-coin # Example
 
 # If not
-$ python tests/test_{file_name}
-$ python tests/test_coin.py # Example
+$ python tests.test_{file_name}.{classname} -v
+$ python tests.test_coin.CoinTestCase -v # Example
 ```

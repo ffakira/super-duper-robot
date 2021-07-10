@@ -7,9 +7,11 @@
   "scripts": {
     "lint": "flake8 --ignore=F405,F403,E731,E501 src",
     "start": "python src/main.py",
+    "install": "pip install -r requirements.txt",
     "test": "python -m unittest discover -s tests -v",
-    "test-coin": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_coin.py -v",
-    "test-wallet": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_wallet.py -v",
-    "test-distribution": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_distribution.py -v"
+    "test-coin": "python -m unittest tests.test_coin.CoinTestCase -v",
+    "test-wallet": "python -m unittest tests.test_wallet.WalletTestCase -v",
+    "test-distribution": "python -m unittest tests.test_distribution.DistributionTestCase -v",
+    "test-reservation-handle": "python -m unittest tests.test_reservation_handle.ReservationHandleTestCase -v"
   }
 }

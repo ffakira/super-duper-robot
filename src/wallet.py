@@ -1,6 +1,6 @@
 from secrets import token_hex
 from functools import reduce
-from coin import Coin
+from src.coin import Coin
 
 
 # @title Class Wallet
