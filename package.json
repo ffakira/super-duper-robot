@@ -5,8 +5,9 @@
   "license": "Unlicesed",
   "version": "0.0.1",
   "scripts": {
+    "lint": "flake8 --ignore=F405,F403,E731,E501 src",
     "start": "python src/main.py",
-    "test": "npm run test-coin && npm run test-wallet && npm run test-distribution",
+    "test": "python -m unittest discover -s tests -v",
     "test-coin": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_coin.py -v",
     "test-wallet": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_wallet.py -v",
     "test-distribution": "set PYTHONPATH=%PYTHONPATH%;%cd% && python tests/test_distribution.py -v"

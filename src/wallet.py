@@ -90,7 +90,6 @@ class Wallet:
                         total -= v.value
                         self.__coins.pop(0)
 
-
                 # self.__coins.sort(key=lambda x: x.value)
                 # for v in self.__coins:
                 #     if v.value <= value:

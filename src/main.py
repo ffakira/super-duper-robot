@@ -1,6 +1,6 @@
 from wallet import *
 from coin import *
-from distribition import Distribution
+# from distribition import Distribution
 
 
 def main():

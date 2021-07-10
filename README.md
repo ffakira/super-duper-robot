@@ -8,6 +8,11 @@
 `src` folder contains all files to create the API endpoints, and also the business logic. This was originally translated from `*.ts` files.
 
 ```bash
+# required pip
+$ pip install -r requirements.txt
+```
+
+```bash
 # npm available
 $ npm run start
 
@@ -24,7 +29,7 @@ $ python src/main.py
 $ npm run test
 
 # If not
-$ python tests/test_coin.py && python tests/test_wallet.py
+$ python -m unittest discover -s tests -v
 ```
 
 You may also choose to run individual tests.
