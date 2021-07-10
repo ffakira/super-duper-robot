@@ -1,6 +1,6 @@
 from secrets import token_hex
 from functools import reduce
-from . import coin as Coin
+from coin import Coin
 
 
 # @title Class Wallet
@@ -11,7 +11,9 @@ class Wallet:
 
     # @constructor
     # @param Coin | Coin[] coin
-    def __init__(self, coin):
+    def __init__(self, coin, obj=False) -> None:
+        self.__obj = obj
+
         # @dev if user passes only Coin object
         if type(coin) == Coin:
             self.__coins.append(coin)
@@ -24,21 +26,20 @@ class Wallet:
         return self.__coins
 
     # @returns Coins[] | int[] | float[]
-    def get_coins(self):
+    def get_coins(self) -> list:
         return self.__coins
 
     # @returns string
-    def get_address(self):
+    def get_address(self) -> str:
         return self.__address
 
-    # @param obj boolean
     # @returns number (sum of self.coins)
-    def available(self, obj=False):
+    def available(self) -> int or float:
         if len(self.__coins) == 0:
             return 0
 
         # @dev if is Coins[]
-        if obj:
+        if self.__obj:
             if len(self.__coins) == 1:
                 return self.__coins[0].value
 
@@ -59,29 +60,31 @@ class Wallet:
 
     # @dev coin cannot be below zero
     # @param Coin[] | int[] | float[] coin
-    def add(self, coin):
-        if type(coin) == list:
-            if len(coin) <= 0:
+    def add(self, coins) -> Exception or None:
+        if type(coins) == list:
+            if len(coins) <= 0:
                 raise Exception("[Error@Wallet.add]: No coins to be added")
             else:
-                self.__coins += coin
+                self.__coins += coins
 
         else:
-            if coin <= 0:
+            if coins <= 0:
                 raise Exception("[Error@Wallet.add]: Can't be negative value!")
 
             else:
-                if type(coin) == Coin:
-                    self.__coins.append(coin)
+                if type(coins) == Coin:
+                    self.__coins.append(coins)
 
                 else:
-                    self.__coins.append(Coin(coin))
+                    self.__coins.append(Coin(coins))
 
-    def spend(self, value, obj=False):
+    def spend(self, value) -> None or Exception:
         total = value
 
-        if self.available(obj) >= value:
-            if obj:
+        if self.available() >= value:
+            # @dev in progress. Do not set self.__obj=True
+            # @TODO: implement required for Coin[]
+            if self.__obj:
                 self.__coins.sort(key=lambda x: x.value)
 
                 for v in self.__coins:

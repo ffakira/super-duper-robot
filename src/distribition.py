@@ -5,14 +5,14 @@ from math import log, floor
 class Distribution:
     # @constructor
     # @param Coin | Coin[] coin
-    def __init__(self, coins):
+    def __init__(self, coins) -> None:
         self.__coins = coins
 
     # @dev Distribution of coins scale 1000.
     # @param Coin | int | float coin
     # @param obj boolean
     # @returns Coin[] | int[] | float[] | Exception
-    def distribution(self, obj=False):
+    def distribution(self, obj=False) -> list or Exception:
         if len(self.__coins) >= 1:
             # O(x^2) complexity -> appending values based of indices
             dist = lambda x: [[j for i, j in enumerate(x) if index(x)[i] == b] for b in range(max(index(x)) + 1)]
